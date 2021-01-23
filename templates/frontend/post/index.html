@@ -1,0 +1,61 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+{% block title %}{{ post.title }}{% endblock %}
+{% block styles %}
+
+{% endblock %}
+
+{% block  content %}
+
+    <!-- Blog Entries Column -->
+    <div class="col-md-8">
+        <!-- Blog Post -->
+        {% for post in posts %}
+            <a class="text-decoration-none text-dark" href="{{ post.get_absolute_url }}">
+                <div class="card mb-4 mt-1">
+                    <img class="card-img-top" src="{% static 'frontend/images/blog_img.jpg' %}" alt="Card image cap">
+                    <div class="card-body">
+                        <h2 class="card-title">{{ post.title }}</h2>
+                        <p class="card-text">
+                            {{ post.body|truncatewords:30|linebreaks }}
+                        </p>
+                        <a href="{{ post.get_absolute_url }}" class="btn btn-outline-success">Read More &rarr;</a>
+                    </div>
+                    <div class="card-footer text-muted">
+                        Posted on January 1, 2020 by
+                        <a href="#" class="text-success">Django</a>
+
+                    </div>
+                </div>
+            </a>
+
+        {% endfor %}
+
+
+        <!--Pagination-->
+      <div class="container p-4">
+        <div class="pagination justify-content-center">
+            <span class="step-links">
+              {% if page.has_previous %}
+                  <a href="?page=1">&laquo; First</a>
+                  <a href="?page={{ page.previous_page_number }}">Previous</a>
+              {% endif %}
+
+                <span class="current">
+                    Page {{ page.number }} of {{ page.paginator.num_pages }}
+                </span>
+
+              {% if posts.has_next %}
+                  <a href="?page={{ page.next_page_number }}">Next</a>
+                  <a href="?page={{ page.paginator.num_pages }}">Last &raquo;</a>
+              {% endif %}
+            </span>
+            </div>
+        </div>
+      <!--end of Pagination-->
+
+
+    </div>
+
+
+{% endblock %}

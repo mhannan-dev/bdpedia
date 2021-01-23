@@ -1,0 +1,91 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>BD Pedia || Bangla Pedia || Bangladesh Pedia</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'frontend/css/blog-home.css' %}" rel="stylesheet">
+
+
+</head>
+
+<body>
+
+<!-- Navigation -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'app_blog:index' %}">BD Pedia</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item active">
+                    <a class="nav-link" href="{% url 'app_blog:index' %}">Home
+                        <span class="sr-only">(current)</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">SEO</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Graphics</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Mobiles</a>
+                </li>
+
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Page Content -->
+<div class="container">
+
+    <div class="row">
+
+        {% block content %}
+        {% endblock %}
+        {% include "frontend/partials/right_sidebar.html" %}
+
+
+    </div>
+    <!-- /.row -->
+
+</div>
+<!-- /.container -->
+
+<!-- Footer -->
+
+<nav class="navbar navbar-expand-md navbar-light bg-light">
+
+    <div class="container">
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+        <div class="navbar-nav">
+            <a href="#" class="nav-item nav-link active">About us</a>
+            <a href="#" class="nav-item nav-link">Site Map</a>
+            <a href="#" class="nav-item nav-link">Contact us</a>
+            <a href="#" class="nav-item nav-link">Disclaimer</a>
+        </div>
+
+    </div>
+    </div>
+</nav>
+
+
+<!-- Bootstrap core JavaScript -->
+<script src="{% static 'frontend' %}/vendor/jquery/jquery.min.js"></script>
+<script src="{% static 'frontend' %}/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
+
+
